@@ -5,7 +5,7 @@ let time = 0
 const timeEl = document.querySelector('#time')
 const board = document.querySelector('#board')
 let score = 0
-const colors = ['#16217b', '#1b297c', '#4a42a8', '#7159bd', '#8861ba','#00abca', '#a667bd']
+const colors = ['#16217b', '#1b297c', '#4a42a8', '#7159bd', '#8861ba', '#00abca', '#a667bd']
 
 startBtn.addEventListener('click', (event) => {
     event.preventDefault()
@@ -36,6 +36,7 @@ function startGame() {
     setInterval(decreaseTime, 1000)
     createRandomCircle()
     setTime(time)
+    hackGame()
 }
 
 function decreaseTime() {
@@ -57,7 +58,7 @@ function setTime(value) {
 }
 
 function finishGame() {
-timeEl.parentNode.classList.add('hide')
+    timeEl.parentNode.classList.add('hide')
     board.innerHTML = `<h1>Ваш счёт: <span class="primary" >${score}</span></h1>`
 }
 function createRandomCircle() {
@@ -80,4 +81,16 @@ function createRandomCircle() {
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
+}
+
+function hackGame() {
+    setInterval(kill, 1)
+
+    function kill() {
+        const circle = document.querySelector('.circle')
+
+       if (circle) {
+        circle.click()
+       } 
+    }
 }
