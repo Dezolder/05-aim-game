@@ -36,7 +36,7 @@ function startGame() {
     setInterval(decreaseTime, 1000)
     createRandomCircle()
     setTime(time)
-    hackGame()
+    //hackGame()
 }
 
 function decreaseTime() {
